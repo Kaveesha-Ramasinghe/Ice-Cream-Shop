@@ -414,9 +414,6 @@ button:hover{
         font-size: 0.8rem;
         font-weight: 300;
     }
-    .about-img{
-        order: 2;
-    }
     .about-img img{
         width: 100%;
     }
@@ -432,6 +429,5 @@ button:hover{
     .customer-container{
         grid-template-columns: 1fr;
     }
-    
 }
 
