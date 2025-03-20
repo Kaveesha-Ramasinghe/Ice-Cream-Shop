@@ -125,14 +125,14 @@ header{
     overflow: hidden;
 }
 .img-container{
-    width: 100%;
+    width: 200%;
     display: flex;
-    animation: slide 12s infinite alternate;
+    animation: slide 8s infinite alternate;
 }
 .img-container img{
-    width: 100%;
+    width: 50%;
     height: 100vh;
-    background-size: cover;
+    object-fit: cover;
     background-repeat: no-repeat;
 }
 button{
@@ -153,7 +153,7 @@ button:hover{
         transform: translateX(0);
     }
     50%{
-        transform: translateX(-42%);
+        transform: translateX(-50%);
     }
 }
 .about{
@@ -340,16 +340,16 @@ button:hover{
 @media(max-width:768px){
     header{
         padding: 6px 4%;
+        flex-direction: row;
     }
     #menu-icon{
-        display: initial;
+        display: block;
     }
     .navbar{
         position: absolute;
         top: -570px;
         left: 0;
         right: 0;
-        display: flex;
         flex-direction: column;
         background: var(--secondary-color);
         row-gap: 1.4rem;
@@ -357,6 +357,10 @@ button:hover{
         padding: 20px;
         transition: 0.3s;
         text-align: center;
+        width: 100%;
+    }
+    .navbar.active{
+        top: 60px;
     }
     .navbar a{
         color: var(--text-color);
@@ -364,25 +368,47 @@ button:hover{
     .navbar a:hover{
         color: var(--bg-color);
     }
-    .navbar.active{
-        top: 100%;
-    }
     .about{
+        grid-template-columns: 1fr;
         align-items: center;
     }
-}
-@media(max-width:360px){
-    header{
-        padding: 5.5px 4%;
+    .about-img img{
+        width: 80%;
+        margin: 0 auto;
     }
-    .logo img{
-        width: 53px;
+    .product-container{
+        grid-template-columns: repeat(auto-fit,minmax(150px, 1fr));
     }
-    .content{
-        padding-top: 15px;
+    .product-container .box{
+        padding: 8px;
     }
     .content h1{
-        font-size: 30px;
+        font-size: 35px;
+    }
+    .img-container{
+        animation: none;
+        width: 100%;
+    }
+    .img-container img{
+        width: 100%;
+    }
+    .img-container img:nth-child(2),
+    .img-container img:nth-child(3){
+        display: none;
+    }
+}
+@media(max-width:480px){
+    header{
+        padding: 5px 4%;
+    }
+    .logo img{
+        width: 50px;
+    }
+    .content{
+        padding-top: 20px;
+    }
+    .content h1{
+        font-size: 28px;
     }
     .content p{
         font-size: 0.8rem;
@@ -391,11 +417,20 @@ button:hover{
     .about-img{
         order: 2;
     }
+    .about-img img{
+        width: 100%;
+    }
     .about-text{
         text-align: center;
     }
     .about-text h2{
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+    }
+    .product-container{
+        grid-template-columns: 1fr;
+    }
+    .customer-container{
+        grid-template-columns: 1fr;
     }
     
 }
